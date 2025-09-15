@@ -6,6 +6,26 @@ Write down the steps a program would need to make a cup of tea. Then implement a
 function make_tea() that prints each step.
 '''
 # enter your code here
+'''
+Steps to make a cup of tea from chat gpt:
+* Boil water.
+* Place a tea bag (or loose tea in an infuser) into a cup.
+* Pour the hot water over the tea.
+* Let it steep for 3-5 minutes (adjust based on tea type and preference).
+* Remove the tea bag or infuser.
+* Add milk, sugar, honey, or lemon if desired.
+* Stir and enjoy!
+'''
+def make_tea():
+    print("Boil water.")
+    print('Place a tea bag (or loose tea in an infuser) into a cup.')
+    print('Pour the hot water over the tea.')
+    print('Let it steep for 3-5 minutes (adjust based on tea type and preference).')
+    print('Remove the tea bag or infuser.')
+    print('Add milk, sugar, honey, or lemon if desired.')
+    print('Stir and enjoy!')
+
+make_tea()
 
 
 pause=input('pause')
@@ -17,6 +37,13 @@ Given a list [2, 4, 6, 8, 10], write a program that prints the next three number
 (the ones after 10)
 '''
 # enter your code here
+def skip_two():
+    for i in range(3):
+        number = 12
+        print(number)
+        number = number + 2
+
+skip_two()
 
 
 pause=input('pause')
@@ -28,6 +55,12 @@ Write a program that asks the user for their first and last name, then prints a 
 "Hello, <first name> <last name>!"
 '''
 # enter your code here
+def greeting():
+    first_name = input("What is your first name?")
+    last_name = input("What is your last name?")
+    print("Hello, " + first_name + last_name)
+
+greeting()
 
 
 pause=input('pause')
@@ -49,7 +82,15 @@ Ask the user to input two numbers. Calculate and print their sum, difference, pr
 and division (both / and //).
 '''
 # enter your code here
-
+def do_math():
+    number_1 = int(input("Enter a number"))
+    number_2 = int(input("Enter another number"))
+    print(number_1 + number_2)
+    print(number_1 - number_2)
+    print(number_1 * number_2)
+    print(number_1 / number_2)
+    print(number_1 // number_2)
+do_math()
 
 pause=input('pause')
 clear_screen()
@@ -83,7 +124,9 @@ Create a list of your three favorite foods. Replace the second item with a new o
 then print the list.
 '''
 # enter your code here
-
+my_list = ["soup", "pasta", "pizza"]
+my_list[1] = "ice cream"
+print(my_list)
 
 pause=input('pause')
 clear_screen()
@@ -94,7 +137,8 @@ Create a tuple with four numbers. Try to change the first number (observe the er
 and then print the tuple.
 '''
 # enter your code here
-
+dom_tuple = (1, 2, 3, 4)
+print(dom_tuple)
 
 pause=input('pause')
 clear_screen()

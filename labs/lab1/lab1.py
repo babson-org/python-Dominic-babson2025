@@ -4,6 +4,17 @@ Author: <Your Name>
 Instructions: Complete each part below. Save your work and commit + sync in Codespaces.
 """
 
+"""
+if (height % 2 == 0):
+    height = int(input("That wasn't an odd number. Please enter an odd number: "))
+elif (height > 10):
+    height = int(input("That was greater than 10. Please enter a number less than 10"))
+"""
+
+
+
+
+
 # ==============================
 # Part 1: Draw a Diamond
 # ==============================
@@ -13,12 +24,33 @@ def draw_diamond():
     and print a symmetric diamond of that height.
     """
     # TODO: Prompt user for an odd number
-    height = int(input("Enter an odd number for the diamond height: "))
+
+while True:
+    try:
+        height = int(input("Enter an odd number for the diamond height: "))
+    except: 
+ValueError
+        print("That wasn't an integer. Please eneter an integer")
 
     # TODO: Draw the top half of the diamond
-
+startSpaces = height//2
+for i in range(startSpaces, -1, -1):
+    before = " " * i
+    betweenNum = ((startSpaces - i) * 2 - 1)
+    between = " " * betweenNum
+    if betweenNum == -1:
+        print(before + "*")
+    else:
+        print(before + "*" + between + "*")
     # TODO: Draw the bottom half of the diamond
-
+for i in range(1, startSpaces + 1):
+    before = " " * i
+    betweenNum = ((startSpaces - i) * 2 - 1)
+    between = " " * betweenNum
+    if betweenNum == -1:
+        print(before + "*")
+    else:
+        print(before + "*" + between + "*")
 # Uncomment to test Part 1
 # draw_diamond()
 
@@ -35,14 +67,31 @@ def text_analysis():
         - Number of sentences (., ?, !) 
     """
     # TODO: Get user input
-    text = input("Enter some text: ")
-
+text = input("Enter some text: ")
     # TODO: Count letters
-    letters = 0
-
+letters = 0
+for char in text:
+    if char.isalpha():
+        letters += 1
+    else:
+        pass
+print(letters)
     # TODO: Count words
-
+words = 1
+for space in text:
+    if space == " ":
+        words += 1
+    else:
+        pass
+print(words)
     # TODO: Count sentences
+sentences = 0
+for sent in text:
+    if sent == "." | "!" | "?":
+        sent += 1
+    else:
+        pass
+print(sent)
 
     # TODO: Print the results
     print(f"Letters: {letters}")
@@ -61,6 +110,7 @@ def caesar_cipher():
     Ask the user for text and a shift value.
     Provide options to encrypt or decrypt the text using a Caesar cipher.
     """
+
     # TODO: Get user input text
     text = input("Enter text: ")
 
@@ -72,6 +122,14 @@ def caesar_cipher():
 
     # TODO: Implement encryption and decryption logic
     result = ""
+if result == "e":
+    for i in range(len(text)):
+        new_index = (i + shift) % len(text)
+        result = result + result[i]
+else:
+    for i in range(len(text)):
+        new_index = (i - shift) % len(text)
+        result = result + result[i]
 
     # TODO: Print the final result
     print("Result:", result)
