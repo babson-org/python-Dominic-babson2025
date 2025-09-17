@@ -1,9 +1,7 @@
 # ==============================
 # Main Program
 # ==============================
-'''
 
-'''
 def main():
     #Lists the options for the program
     while True:
