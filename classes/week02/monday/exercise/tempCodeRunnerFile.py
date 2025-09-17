@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 dom_tuple = (1, 2, 3, 4)
 print(dom_tuple)
 =======
@@ -6,3 +7,7 @@ myList =['ice cream', 'blueberries', 'cake']
 myList[1] = 'candy'
 print(myList)
 >>>>>>> 15b809ee95d1cf5728b89196a6ad7bef82f80458
+=======
+dom_tuple = (1, 2, 3, 4)
+print(dom_tuple)
+>>>>>>> 1ad88dcf917b6fcad6349eec105dff434930a7fb

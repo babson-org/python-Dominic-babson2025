@@ -48,6 +48,9 @@ Given a list [2, 4, 6, 8, 10], write a program that prints the next three number
 '''
 # enter your code here
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1ad88dcf917b6fcad6349eec105dff434930a7fb
 def skip_two():
     for i in range(3):
         number = 12
@@ -55,12 +58,15 @@ def skip_two():
         number = number + 2
 
 skip_two()
+<<<<<<< HEAD
 =======
 nums = [2, 4, 6, 8, 10]
 for i in range(3):
     next = nums[-1] + 2 + i * 2
     print(next)
 >>>>>>> 15b809ee95d1cf5728b89196a6ad7bef82f80458
+=======
+>>>>>>> 1ad88dcf917b6fcad6349eec105dff434930a7fb
 
 
 pause=input('pause')
@@ -73,12 +79,16 @@ Write a program that asks the user for their first and last name, then prints a 
 '''
 # enter your code here
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1ad88dcf917b6fcad6349eec105dff434930a7fb
 def greeting():
     first_name = input("What is your first name?")
     last_name = input("What is your last name?")
     print("Hello, " + first_name + last_name)
 
 greeting()
+<<<<<<< HEAD
 =======
 fname = input('please enter yur first name: ')
 lname = input('please enter your last name: ')
@@ -86,6 +96,8 @@ fname = fname.capitalize()
 lname = lname.capitalize()
 print(f'Hello, {fname} {lname}')
 >>>>>>> 15b809ee95d1cf5728b89196a6ad7bef82f80458
+=======
+>>>>>>> 1ad88dcf917b6fcad6349eec105dff434930a7fb
 
 
 pause=input('pause')
@@ -114,6 +126,9 @@ and division (both / and //).
 '''
 # enter your code here
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1ad88dcf917b6fcad6349eec105dff434930a7fb
 def do_math():
     number_1 = int(input("Enter a number"))
     number_2 = int(input("Enter another number"))
@@ -123,6 +138,7 @@ def do_math():
     print(number_1 / number_2)
     print(number_1 // number_2)
 do_math()
+<<<<<<< HEAD
 =======
 txt = 'please enter an integer: '
 while True:
@@ -140,14 +156,9 @@ while True:
     except ValueError:
         txt = 'follow directions, enter a number: '
 >>>>>>> 15b809ee95d1cf5728b89196a6ad7bef82f80458
+=======
+>>>>>>> 1ad88dcf917b6fcad6349eec105dff434930a7fb
 
-total = x + y
-diff = x - y
-prod = x * y
-div = x / y
-flr = x // y
-
-print(total, prod, diff, div, flr)
 pause=input('pause')
 clear_screen()
 '''
@@ -192,15 +203,21 @@ then print the list.
 '''
 # enter your code here
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1ad88dcf917b6fcad6349eec105dff434930a7fb
 my_list = ["soup", "pasta", "pizza"]
 my_list[1] = "ice cream"
 print(my_list)
 
+<<<<<<< HEAD
 =======
 myList =['ice cream', 'blueberries', 'cake']
 myList[1] = 'candy'
 print(myList)
 >>>>>>> 15b809ee95d1cf5728b89196a6ad7bef82f80458
+=======
+>>>>>>> 1ad88dcf917b6fcad6349eec105dff434930a7fb
 pause=input('pause')
 clear_screen()
 '''

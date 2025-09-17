@@ -22,6 +22,7 @@
 
   // ?? Explorer sorting and file exclusions
   "explorer.sortOrder": "filesFirst",
+  "explorer.excludeGitIgnore": true,
   "files.exclude": {
     "**/__pycache__": true,
     "**/*.pyc": true,
@@ -30,15 +31,45 @@
     "**/.history": true,
     "**/.vscode": true,
     "**/.git": true,
-    "**/misc": true,
+    "**/misc": true, 
+    "**/tempCodeRunnerFile.py": true,
     "**/default_code": true
   },
+  
+  "files.watcherExclude": {
+      "**/tempCodeRunnerFile.py": true
+  },
+  
+  "search.exclude": {
+    "**/tempCodeRunnerFile.py": true
+  },
+  
+  
+   
+    // ?? Notebook settings
+    "notebook.globalToolbar": false,
+    "jupyter.globalToolbar": false,    
+    "notebook.cellToolbarVisibility": "hidden",   // hides the little run/+ buttons on each cell
+
+  
 
   // ??? Editor UI preferences
   "editor.minimap.showSlider": "mouseover",
+  
+  // ?? Tab / Editor behavior
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "workbench.editor.tabCloseButton": "right",
+    "workbench.editor.showTabs": true,
+
 
   // ?? Code Runner execution settings
-  "code-runner.runInTerminal": true
+  "code-runner.runInTerminal": true,
+  "code-runner.ignoreSelection": true,
+  "code-runner.executorMap": {
+     "python": "python -u"
+  },
+  "workbench.editor.tabActionLocation": "right"
 }
 
 
