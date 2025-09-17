@@ -5,6 +5,16 @@ from classes.week00.second_class.utils import clear_screen
 Write down the steps a program would need to make a cup of tea. Then implement a Python 
 function make_tea() that prints each step.
 '''
+steps=['step1','step2','step3']
+def make_tea(myList):
+    myList[2] = "step5"
+    for item in myList:
+        print(item)
+    
+
+make_tea(steps)
+print(steps)
+
 # enter your code here
 '''
 Steps to make a cup of tea from chat gpt:
@@ -71,7 +81,13 @@ clear_screen()
 Write a program that prints your Python version and platform using the sys and platform modules.
 '''
 # enter your code here
+import sys
+import platform
+import pprint
 
+#pprint.pprint(dir(sys))
+print(type(sys.version))
+print(sys.version, sys.platform)
 
 pause=input('pause')
 clear_screen()
@@ -100,6 +116,11 @@ clear_screen()
 Ask the user to input a sentence. Print it in uppercase, lowercase, with the first letter 
 capitalized, and split it into words.
 '''
+txt = input('please entr some text:')
+print(txt.upper())
+print(txt.lower())
+print(txt.capitalize())
+print(txt.split())
 
 # enter your code here
 
@@ -113,8 +134,14 @@ Calculate the result of the following without parentheses and then with parenthe
 10 + 2 * 5 / 2 - 3 ** 2
 '''
 # enter your code here
+print(10 + 2 * 5 / 2 - 3 ** 2)
 
+x = (10 + (2 * (5 / 2)) - (3 ** 2))
 
+print(x)
+
+x = 2**3**2
+print(x)
 pause=input('pause')
 clear_screen()
 '''
