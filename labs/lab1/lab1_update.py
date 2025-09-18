@@ -45,7 +45,7 @@ def draw_diamond():
             print("That wasn't an integer. Please eneter an integer: ")
 # Draws the top half of the diamond
     # Calculates the spaces before the first star
-    startSpaces = height//2
+    startSpaces = height // 2
     # Iterates through desried length and prints "*" and spaces
     for i in range(startSpaces, -1, -1):
         before = " " * i
@@ -79,12 +79,15 @@ the number of times that sentence-ending punctuation is used.
 def text_analysis():
     # Get user input
     text = input("Enter some text: ")
+     
+    '''
+    ############Consider this section#######################################
     # Counts the letters using .isalpha()
     letters = 0
     for char in text:
         if char.isalpha():
             letters += 1
-        else:
+        else:                         
             pass
     print(letters)
     # Counts the words by counting the spaces
@@ -101,6 +104,27 @@ def text_analysis():
             sent += 1
         else:
             pass
+    #####################################################    
+    '''   
+
+
+     # Counts the letters using .isalpha()
+    letters = 0
+    words = 1
+    sent = 0
+    for char in text:
+        if char.isalpha(): letters += 1
+        elif char == " ": words += 1
+        elif  char in ".?!": sent += 1
+        
+   # the above does exactly the same thing
+
+
+
+
+
+
+
     # Print the results
     print(f"Letters: {letters}")
     print(f"Words: {words}")      
