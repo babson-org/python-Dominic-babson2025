@@ -1,7 +1,18 @@
 # ==============================
 # Main Program
 # ==============================
+'''
+Dom, good Job on the lab.  Grade A-
 
+would like to see greater depth in the computational thinking
+description.  Show how you a) decompose the problem down to smaller
+parts and b) explicitly show patterns that might be helpful.
+
+text_anaylsis was fine but you are working to hard!  You just need
+1 loop not 3!
+
+
+'''
 def main():
     #Lists the options for the program
     while True:
