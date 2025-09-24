@@ -44,6 +44,8 @@ updates the portfolio.
    - Update (or create) the position for that symbol.
    - Recalculate the average cost.
 
+
+
 2. **Selling a Security**
    - Validate position: do we own that ticker?
    - Check share count: do we have at least that many shares?
@@ -76,3 +78,50 @@ This way:
 
 
 '''
+
+# portfolio/positions.py (or inside client.py if you want for now)
+
+def _update_position(client, transaction):
+    """
+    Update the client's positions based on the given transaction.
+    For now: handles CONTRIBUTIONS and WITHDRAWALS.
+    Later: extend to BUY and SELL.
+    """
+
+    t_type = transaction.get("type")
+    amount = transaction.get("amount", 0)
+
+    # Find the cash position (symbol == "CASH")
+    cash_position = None
+    for pos in client["positions"]:
+        if pos["symbol"] == "CASH":
+            cash_position = pos
+            break
+
+    # If no cash position exists yet, create one
+    if cash_position is None:
+        cash_position = {"id": len(client["positions"]) + 1,
+                         "symbol": "CASH",
+                         "shares": 0}   # we’ll treat shares as "cash balance"
+        client["positions"].append(cash_position)
+
+    if t_type == "CONTRIBUTION":
+        cash_position["shares"] += amount
+
+    elif t_type == "WITHDRAWAL":
+        if cash_position["shares"] < amount:
+            raise ValueError("Insufficient cash for withdrawal")
+        cash_position["shares"] -= amount
+
+    elif t_type == "BUY":
+        # Not implemented yet
+        return None
+
+    elif t_type == "SELL":
+        # Not implemented yet
+        return None
+
+    else:
+        raise ValueError(f"Unknown transaction type: {t_type}")
+
+    return cash_position
