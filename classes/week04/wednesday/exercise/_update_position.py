@@ -79,6 +79,7 @@ This way:
 
 '''
 
+import 
 # portfolio/positions.py (or inside client.py if you want for now)
 
 def _update_position(client, transaction):

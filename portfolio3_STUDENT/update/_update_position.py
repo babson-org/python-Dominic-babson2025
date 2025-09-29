@@ -1,4 +1,3 @@
-import 
 def _update_position(active_client, transaction):
     # helper function to only be used inside create_transaction    
 
@@ -16,7 +15,9 @@ def _update_position(active_client, transaction):
 
             active_client['positions'].append(position)    # or client['positions].append(position)
     elif transaction['type'] == 'BUY':
-        pass
+        if active_client['postitions']:
+            for postion in active_client['positions']:
+                pass
     elif transaction['type'] == 'SELL':
         pass
     elif transaction['type'] == 'WITHDRAWAL':

@@ -116,30 +116,5 @@
                 "trn_price": 1.0
             }
         ]
-    },
-    {
-        "id": 5,
-        "fname": "Dominic",
-        "lname": "Crisafulli",
-        "positions": [
-            {
-                "id": 5,
-                "shares": 1000.0,
-                "symbol": "$$$$",
-                "name": "Cash",
-                "avg_cost": 1.0
-            }
-        ],
-        "transactions": [
-            {
-                "id": 5,
-                "timestamp": "20250924-140820",
-                "type": "CONTRIBUTION",
-                "shares": 1000.0,
-                "symbol": "$$$$",
-                "name": "Cash",
-                "trn_price": 1.0
-            }
-        ]
     }
 ]
