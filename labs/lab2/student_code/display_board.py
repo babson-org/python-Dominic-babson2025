@@ -38,27 +38,22 @@ def print_board(board: list[int]):
     """
     
     def cell(value: int) -> str:
-        # TODO: Return 'X' if value == 10
-        # TODO: Return 'O' if value == -10
-        # TODO: Otherwise, return str(value)  -> if not 10 or -10 return idx 1-9 as a string
-        pass
+        # Returns X or O for player or ai input
+        if value == 10:
+            return 'X'
+        elif value == -10:
+            return 'O'
+        else:
+            return str(value)
         
     clear_screen()
-    # TODO: Loop through rows
-    # TODO: For each row, print formatted board row using cell()
-    # HINT: For each row create a list of what should be printed
-    #       row_values = [ 'X', '2', '3' ] call cell() each time to get each value
-    #       add the board layout:
-    
-    #                  |   |          
-    #                X | 2 | 3 
-    #                  |   |   
-    #               -----------
-    #                  |   |   
-    #                4 | O | 6 
-    #                  |   |   
-    #               -----------
-    #                  |   |   
-    #                7 | 8 | X 
-    #                  |   |   
+    # Loops through rows and gets the 3 cells for the row
+    for row in range(3):
+        rows = [cell(board[row * 3 + col]) for col in range(3)]
+    # Prints the format of the game with the rows from above
+        print('   |   |    ')
+        print(f' {rows[0]} | {rows[1]} | {rows[2]} ')
+        print('   |   |    ')
+        if row < 2:
+            print('-----------')
     pass
