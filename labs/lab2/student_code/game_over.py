@@ -11,7 +11,7 @@ def game_over(board: list[int]):
     """
 
     # Chekcs if all of the spots on the board are filled
-    if all(abs(board) == 10 ):
+    if all(abs(cell) == 10 for cell in board):
         return True
     # Uses calc_score to check if someone has won, returns true if game is over, false if not
     score = calc_score(board)

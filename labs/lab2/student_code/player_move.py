@@ -14,15 +14,15 @@ def player_move(board: list[int], score: dict[str, int]):
             # Changes the range of inputted indexes from 1-9 to 0-8
             idx = move - 1
             # Checks if the inputted number is between 1 and 9
-            if 0 < idx > 8:
+            if idx < 0 or idx > 8:
                 prompt = "That isn't between 1-9. Try again (1-9): "
                  # Checks if the position is taken or not
-            if board[idx] == 10 or -10:
+            if board[idx] in (10, -10):
                 prompt("That one's taken. Pick another: ")
         except ValueError:
             prompt = "Invalid input. Try again (1-9): "
 
-        board[idx] = score['player']
+        board[idx + 1] = score['player']
     
     
 pass
