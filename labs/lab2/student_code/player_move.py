@@ -22,7 +22,7 @@ def player_move(board: list[int], score: dict[str, int]):
         except ValueError:
             prompt = "Invalid input. Try again (1-9): "
 
-        board[idx + 1] = score['player']
+        board[idx] = score['player']
     
     
 pass
