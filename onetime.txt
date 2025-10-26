@@ -1,0 +1,1 @@
+pwsh -ExecutionPolicy Bypass -File "C:\PythonClass\fix_execution_policy.ps1"
