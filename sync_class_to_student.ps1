@@ -12,17 +12,11 @@ Write-Host ""
 Write-Host "Starting sync_class_to_student.ps1..." -ForegroundColor Cyan
 
 # ----------------------------------------------------------
-# 1. Locate PythonClass root folder
+# 1. Locate PythonClass root folder (robust across locations)
 # ----------------------------------------------------------
-$path = (Get-Location).Path
-while ($path -ne [System.IO.Path]::GetPathRoot($path)) {
-    if (Test-Path (Join-Path $path "sync_class_to_student.ps1")) {
-        $root = $path
-        break
-    }
-    $path = Split-Path $path
-}
-if (-not $root) { Write-Host "ERROR: Could not locate PythonClass root folder." -ForegroundColor Red; exit 1 }
+# $PSScriptRoot always points to the folder containing this script
+$ScriptRoot = Split-Path -Parent $MyInvocation.MyCommand.Definition
+$root = $ScriptRoot
 
 $configFile  = Join-Path $root ".student_config.txt"
 $classRepo   = Join-Path $root "class_repo"
@@ -46,17 +40,41 @@ if (-not $gitUser -or -not $gitEmail) {
 Write-Host "Git identity: $gitUser <$gitEmail>" -ForegroundColor Green
 
 # ----------------------------------------------------------
-# 3. Get GitHub username (prompt once)
+# 3. Get GitHub username (prompt once, or auto-load)
 # ----------------------------------------------------------
+$username = ""
+$configFile = Join-Path $root ".student_config.txt"
+
+# Try to load saved username if file exists
 if (Test-Path $configFile) {
-    $username = Get-Content $configFile | Select-Object -First 1
-    Write-Host "Loaded GitHub username from config: $username" -ForegroundColor Green
-} else {
+    $username = (Get-Content $configFile -Raw).Trim()
+    if ($username) {
+        Write-Host "Loaded GitHub username from config: $username" -ForegroundColor Green
+    } else {
+        Write-Host "⚠️  Username file found but empty — prompting again." -ForegroundColor Yellow
+        Remove-Item $configFile -Force -ErrorAction SilentlyContinue
+    }
+}
+
+# Use environment variable if defined
+if (-not $username -and $env:GH_USERNAME) {
+    $username = $env:GH_USERNAME
+    Write-Host "✅ Using GitHub username from environment: $username" -ForegroundColor Green
+}
+
+# Prompt interactively if still missing
+if (-not $username) {
     Write-Host ""
     $username = Read-Host "Enter your GitHub username (e.g., Ava-Babson2025)"
-    Set-Content -Path $configFile -Value $username
-    Write-Host "Username saved for future runs." -ForegroundColor Green
+    if ($username) {
+        Set-Content -Path $configFile -Value $username -Encoding UTF8
+        Write-Host "Username saved for future runs." -ForegroundColor Cyan
+    } else {
+        Write-Host "❌ No username entered. Exiting." -ForegroundColor Red
+        exit 1
+    }
 }
+
 
 # ----------------------------------------------------------
 # 4. Clone repos if missing
