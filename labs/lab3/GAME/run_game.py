@@ -64,8 +64,7 @@ class GamePycFinder(importlib.abc.MetaPathFinder):
     def find_spec(self, fullname, path=None, target=None):
         for cand in self._candidate_paths(fullname):
             if os.path.exists(cand):
-                loader = importlib.machinery.SourcelessFileLoader(
-                    fullname, cand)
+                loader = importlib.machinery.SourcelessFileLoader(fullname, cand)
                 return importlib.machinery.ModuleSpec(
                     name=fullname, loader=loader, origin=cand
                 )
