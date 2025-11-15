@@ -1,30 +1,39 @@
-"""
-Function to print the Minesweeper board.
-"""
+import globals
 
-def print_board(board, rows, cols):
-    """
-    Print the game board with row and column headers.
-    
-    Args:
-        board: 2D list representing the board
-        rows: Number of rows
-        cols: Number of columns
-    """
-    # Print column headers
-    print("  ", end="")
-    for col in range(cols):
-        print(f"{col} ", end="")
-    print()
-    
-    # Print each row with row header
-    for row in range(rows):
-        print(f"{row} ", end="")
-        for col in range(cols):
-            cell_value = board[row][col]
-            # Display blank cells as spaces, everything else as-is
-            if cell_value == ' ' or cell_value == '':
-                print("  ", end="")
+
+def print_board(board: list, level: int):
+
+    board = [
+        [(' ♦', '💣'), (' ♦', '💣'), (' ♦', 1),
+         (' ♦', '   '), (' ♦', '   '), (' ♦', '   ')],
+        [(' ♦', 2), (' ♦', 2), (' ♦', 1),
+         (' ♦', '   '), (' ♦', '   '), (' ♦', '   ')],
+        [(' ♦', '   '), (' ♦', '   '), (' ♦', '   '),
+         (' ♦', '   '), (' ♦', '   '), (' ♦', '   ')],
+    ]
+
+    level = 0
+
+    line_hash = '|-----'
+
+    print('      ', end='')
+    for idx in range(globals.COLS):
+        print(f'   {idx}  ', end='')
+
+    print(f'\n      {line_hash * globals.COLS}|')
+
+    for row in range(globals.ROWS):
+        print(f'  {row}   ', end='')
+        for col in range(globals.COLS):
+            symbol = board[row][col][level]
+
+            if symbol == '💣':
+                print(f'| {symbol:3}', end='')
             else:
-                print(f"{cell_value} ", end="")
-        print()
+                print(f'| {symbol:3} ', end='')
+        print('|')
+
+        print(f'      {line_hash * globals.COLS}|')
+
+
+print_board([], 4)
